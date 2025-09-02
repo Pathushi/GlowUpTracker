@@ -27,7 +27,8 @@ public class ReportPanel extends JPanel {
     private void generateReport() {
         StringBuilder sb = new StringBuilder();
         int total = 0, completed = 0;
-        for (Habit habit : progressPanel.service.getProgress().getHabits()) {
+        for (Habit habit : progressPanel.getService().getProgress().getHabits()
+) {
             total++;
             if (habit.isCompleted()) completed++;
             sb.append(habit.getName())

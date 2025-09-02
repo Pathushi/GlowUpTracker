@@ -35,4 +35,9 @@ public class ProgressPanel extends JPanel {
         revalidate();
         repaint();
     }
+
+    // ✅ Add this getter to allow ReportPanel to access the service
+    public TrackerService getService() {
+        return service;
+    }
 }
