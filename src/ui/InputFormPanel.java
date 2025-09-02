@@ -1,7 +1,7 @@
-package src.ui;
+package ui;
 
-import src.model.Habit;
-import src.service.TrackerService;
+import model.Habit;
+import service.TrackerService;
 
 import javax.swing.*;
 import java.awt.*;

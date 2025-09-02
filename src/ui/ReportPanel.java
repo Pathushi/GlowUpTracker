@@ -1,6 +1,6 @@
-package src.ui;
+package ui;
 
-import src.model.Habit;
+import model.Habit;
 
 import javax.swing.*;
 import java.awt.*;

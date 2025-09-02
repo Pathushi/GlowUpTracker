@@ -1,9 +1,11 @@
 package src;
 
-import src.ui.GlowUpFrame;
+import ui.GlowUpFrame;
 
 public class Main {
     public static void main(String[] args) {
-        new GlowUpFrame(); // Launch the UI
+        javax.swing.SwingUtilities.invokeLater(() -> {
+            new GlowUpFrame().setVisible(true);
+        });
     }
 }

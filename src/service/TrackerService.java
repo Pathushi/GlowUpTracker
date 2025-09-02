@@ -1,8 +1,8 @@
-package src.service;
+package service;
 
-import src.model.Progress;
-import src.model.Habit;
-import src.util.FileHandler;
+import model.Progress;
+import model.Habit;
+import util.FileHandler;
 
 public class TrackerService {
     private Progress progress;
