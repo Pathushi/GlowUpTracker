@@ -17,18 +17,38 @@ public class InputFormPanel extends JPanel {
         this.progressPanel = progressPanel;
         service = new TrackerService();
 
-        setLayout(new GridLayout(3, 2, 10, 10));
+        setLayout(new GridBagLayout());
+        setBorder(BorderFactory.createEmptyBorder(20, 40, 20, 40));
+        setBackground(new Color(245, 245, 250));
 
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(10, 10, 10, 10);
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+
+        JLabel title = new JLabel("➕ Add a New Habit");
+        title.setFont(new Font("SansSerif", Font.BOLD, 18));
+        gbc.gridx = 0; gbc.gridy = 0; gbc.gridwidth = 2;
+        add(title, gbc);
+
+        gbc.gridwidth = 1;
+
+        gbc.gridx = 0; gbc.gridy = 1;
+        add(new JLabel("Habit Name:"), gbc);
+        gbc.gridx = 1;
         nameField = new JTextField();
-        frequencyBox = new JComboBox<>(new String[]{"Daily", "Weekly"});
-        addButton = new JButton("Add Habit");
+        add(nameField, gbc);
 
-        add(new JLabel("Habit Name:"));
-        add(nameField);
-        add(new JLabel("Frequency:"));
-        add(frequencyBox);
-        add(new JLabel(""));
-        add(addButton);
+        gbc.gridx = 0; gbc.gridy = 2;
+        add(new JLabel("Frequency:"), gbc);
+        gbc.gridx = 1;
+        frequencyBox = new JComboBox<>(new String[]{"Daily", "Weekly"});
+        add(frequencyBox, gbc);
+
+        gbc.gridx = 0; gbc.gridy = 3; gbc.gridwidth = 2;
+        addButton = new JButton("✅ Add Habit");
+        addButton.setBackground(new Color(100, 180, 100));
+        addButton.setForeground(Color.WHITE);
+        add(addButton, gbc);
 
         addButton.addActionListener(e -> {
             String name = nameField.getText().trim();
@@ -37,8 +57,9 @@ public class InputFormPanel extends JPanel {
                 service.addHabit(habit);
                 nameField.setText("");
                 progressPanel.refresh();
+                JOptionPane.showMessageDialog(this, "Habit added successfully! 🎉");
             } else {
-                JOptionPane.showMessageDialog(this, "Enter a habit name!");
+                JOptionPane.showMessageDialog(this, "Please enter a habit name.");
             }
         });
     }

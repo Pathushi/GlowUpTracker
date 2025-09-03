@@ -1,3 +1,9 @@
 {
-  "habits": []
+  "habits": [
+    {
+      "name": "Ginger shot",
+      "frequency": "Daily",
+      "completed": false
+    }
+  ]
 }
